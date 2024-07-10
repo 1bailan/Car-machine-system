@@ -120,3 +120,84 @@
 - 完成项目后编写测试文档和功能文档。
 
 通过以上的项目框架和实现思路，可以构建一个完整的基于物联网技术的新能源车智慧车机系统。
+
+
+
+
+
+#### 1. 状态模式（系统启动与开机动画）
+
+```cpp
+// State.h
+class Context;
+
+class State {
+public:
+    virtual ~State() {}
+    virtual void handle(Context* context) = 0;
+};
+
+class Context {
+private:
+    State* state;
+public:
+    Context(State* state) : state(state) {}
+    ~Context() { delete state; }
+    void setState(State* state) {
+        delete this->state;
+        this->state = state;
+    }
+    void request() {
+        state->handle(this);
+    }
+};
+
+// ConcreteStates.h
+class StartState : public State {
+public:
+    void handle(Context* context) override;
+};
+
+class RunningState : public State {
+public:
+    void handle(Context* context) override;
+};
+
+class StopState : public State {
+public:
+    void handle(Context* context) override;
+};
+
+// ConcreteStates.cpp
+#include "State.h"
+#include "ConcreteStates.h"
+#include <iostream>
+
+void StartState::handle(Context* context) {
+    std::cout << "System is starting...\n";
+    context->setState(new RunningState());
+}
+
+void RunningState::handle(Context* context) {
+    std::cout << "System is running...\n";
+    context->setState(new StopState());
+}
+
+void StopState::handle(Context* context) {
+    std::cout << "System is stopping...\n";
+    context->setState(new StartState());
+}
+
+// Main.cpp
+#include "State.h"
+#include "ConcreteStates.h"
+
+int main() {
+    Context* context = new Context(new StartState());
+    context->request();
+    context->request();
+    context->request();
+    delete context;
+    return 0;
+}
+```
