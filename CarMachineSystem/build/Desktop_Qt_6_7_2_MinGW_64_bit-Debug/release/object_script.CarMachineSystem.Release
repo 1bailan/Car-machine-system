@@ -2,11 +2,11 @@ release/appbt.o
 release/httpweather.o
 release/main.o
 release/mainwindow.o
-release/menu.o
+release/musicbt.o
 release/setbt.o
 release/qrc_UI.o
 release/moc_appbt.o
 release/moc_httpweather.o
 release/moc_mainwindow.o
-release/moc_menu.o
+release/moc_musicbt.o
 release/moc_setbt.o

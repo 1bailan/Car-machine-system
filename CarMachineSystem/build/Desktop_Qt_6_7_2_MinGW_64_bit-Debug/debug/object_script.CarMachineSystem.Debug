@@ -2,11 +2,11 @@ debug/appbt.o
 debug/httpweather.o
 debug/main.o
 debug/mainwindow.o
-debug/menu.o
+debug/musicbt.o
 debug/setbt.o
 debug/qrc_UI.o
 debug/moc_appbt.o
 debug/moc_httpweather.o
 debug/moc_mainwindow.o
-debug/moc_menu.o
+debug/moc_musicbt.o
 debug/moc_setbt.o

@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network    #QWebEngine
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,21 +13,19 @@ SOURCES += \
     httpweather.cpp \
     main.cpp \
     mainwindow.cpp \
-    menu.cpp \
+    musicbt.cpp \
     setbt.cpp
 
 HEADERS += \
     appbt.h \
     httpweather.h \
     mainwindow.h \
-    menu.h \
+    musicbt.h \
     setbt.h
 
 FORMS += \
-    appbt.ui \
     httpweather.ui \
-    mainwindow.ui \
-    menu.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

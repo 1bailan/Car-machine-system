@@ -27,6 +27,7 @@ protected slots:
     void read_data(QNetworkReply *reply);   //读取回答数据
 
     void update_Timer();                    //更新时间
+
 private:
     Ui::HttpWeather *ui;
     QNetworkAccessManager  manager;     //Http对象

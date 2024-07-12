@@ -37,7 +37,8 @@ public:
     {
         if (HttpWeather->objectName().isEmpty())
             HttpWeather->setObjectName("HttpWeather");
-        HttpWeather->resize(595, 266);
+        HttpWeather->resize(750, 230);
+        HttpWeather->setStyleSheet(QString::fromUtf8(""));
         horizontalLayout_3 = new QHBoxLayout(HttpWeather);
         horizontalLayout_3->setObjectName("horizontalLayout_3");
         horizontalLayout_2 = new QHBoxLayout();

@@ -18,8 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_menuBt_clicked();
-
+    void onCustomButtonClicked();
 private:
     Ui::MainWindow *ui;
 };
