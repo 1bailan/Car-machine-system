@@ -6,9 +6,11 @@ release/mainwindow.o
 release/musicbt.o
 release/setbt.o
 release/state.o
+release/videoplayer.o
 release/qrc_UI.o
 release/moc_appbt.o
 release/moc_httpweather.o
 release/moc_mainwindow.o
 release/moc_musicbt.o
 release/moc_setbt.o
+release/moc_videoplayer.o

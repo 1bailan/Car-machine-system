@@ -4,6 +4,7 @@
 #include "setbt.h"
 #include "state.h"
 #include "concretestates.h"
+#include "videoplayer.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -17,7 +18,7 @@ int main(int argc, char *argv[])
     // context->request();
 
     MainWindow w;
-    w.show();
+    // w.show();
     // AppBt e;
     // e.show();
     // HttpWeather h;

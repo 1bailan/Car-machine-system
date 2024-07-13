@@ -10,7 +10,9 @@
 
 #include "state.h"
 #include "MainWindow.h"
-#include <iostream>
+#include "VideoPlayer.h"
+#include <QDebug>
+#include <QObject>
 
 class StartState : public State
 {

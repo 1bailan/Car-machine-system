@@ -6,9 +6,11 @@ debug/mainwindow.o
 debug/musicbt.o
 debug/setbt.o
 debug/state.o
+debug/videoplayer.o
 debug/qrc_UI.o
 debug/moc_appbt.o
 debug/moc_httpweather.o
 debug/moc_mainwindow.o
 debug/moc_musicbt.o
 debug/moc_setbt.o
+debug/moc_videoplayer.o
