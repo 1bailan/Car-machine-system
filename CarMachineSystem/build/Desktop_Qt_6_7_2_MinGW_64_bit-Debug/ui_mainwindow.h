@@ -14,6 +14,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 #include <httpweather.h>
 #include <setbt.h>
@@ -37,6 +38,7 @@ public:
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
+    QPushButton *someButton;
     QMenuBar *menubar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -44,7 +46,12 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 480);
-        MainWindow->setStyleSheet(QString::fromUtf8(""));
+        MainWindow->setStyleSheet(QString::fromUtf8("/* \350\256\276\347\275\256\347\252\227\345\217\243\350\276\271\346\241\206\346\240\267\345\274\217 */\n"
+"QWidget#weatherWg {\n"
+"    border: 2px solid #4CAF50;\n"
+"    border-radius: 10px;\n"
+"    padding: 10px;\n"
+"}"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         customButton = new SetBt(centralwidget);
@@ -134,30 +141,34 @@ public:
         sizePolicy.setHeightForWidth(weatherWg->sizePolicy().hasHeightForWidth());
         weatherWg->setSizePolicy(sizePolicy);
         weatherWg->setMinimumSize(QSize(700, 180));
-        weatherWg->setStyleSheet(QString::fromUtf8("/* \350\256\276\347\275\256\347\252\227\345\217\243\350\276\271\346\241\206\346\240\267\345\274\217 */\n"
-"QWidget {\n"
-"    border: 2px solid #4CAF50;\n"
-"    border-radius: 10px;\n"
-"    padding: 10px;\n"
-"}"));
+        weatherWg->setStyleSheet(QString::fromUtf8(""));
         label = new QLabel(centralwidget);
         label->setObjectName("label");
-        label->setGeometry(QRect(50, 420, 40, 12));
+        label->setGeometry(QRect(40, 420, 61, 21));
+        label->setAlignment(Qt::AlignCenter);
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(180, 420, 40, 12));
+        label_2->setGeometry(QRect(170, 420, 61, 21));
+        label_2->setAlignment(Qt::AlignCenter);
         label_3 = new QLabel(centralwidget);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(310, 420, 40, 12));
+        label_3->setGeometry(QRect(300, 420, 61, 21));
+        label_3->setAlignment(Qt::AlignCenter);
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(450, 420, 40, 12));
+        label_4->setGeometry(QRect(440, 420, 61, 21));
+        label_4->setAlignment(Qt::AlignCenter);
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(580, 420, 40, 12));
+        label_5->setGeometry(QRect(580, 420, 61, 21));
+        label_5->setAlignment(Qt::AlignCenter);
         label_6 = new QLabel(centralwidget);
         label_6->setObjectName("label_6");
-        label_6->setGeometry(QRect(710, 420, 40, 12));
+        label_6->setGeometry(QRect(700, 420, 61, 21));
+        label_6->setAlignment(Qt::AlignCenter);
+        someButton = new QPushButton(centralwidget);
+        someButton->setObjectName("someButton");
+        someButton->setGeometry(QRect(360, 260, 80, 18));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -178,6 +189,7 @@ public:
         label_4->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        someButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
     } // retranslateUi
 
 };

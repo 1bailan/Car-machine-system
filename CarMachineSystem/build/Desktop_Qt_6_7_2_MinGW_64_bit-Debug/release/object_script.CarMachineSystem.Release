@@ -1,9 +1,11 @@
 release/appbt.o
+release/concretestates.o
 release/httpweather.o
 release/main.o
 release/mainwindow.o
 release/musicbt.o
 release/setbt.o
+release/state.o
 release/qrc_UI.o
 release/moc_appbt.o
 release/moc_httpweather.o

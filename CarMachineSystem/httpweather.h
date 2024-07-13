@@ -1,4 +1,11 @@
-﻿#ifndef HTTPWEATHER_H
+﻿/*!
+* @file HttpWeather.h
+* @brief 概述 天气小部件
+* @author Bailan
+* @version 版本号(maj.min，主版本.分版本格式)
+* @date 日期: 2024 / xx / xx
+*/
+#ifndef HTTPWEATHER_H
 #define HTTPWEATHER_H
 
 #include <QNetworkAccessManager>
@@ -19,17 +26,15 @@ public:
 
 protected:
     void showTime();                //显示时间
-
     void show_Pic(int num);         //显示图片
-
     void show_Week();               //显示星期几
+
 protected slots:
     void read_data(QNetworkReply *reply);   //读取回答数据
-
     void update_Timer();                    //更新时间
 
 private:
-    Ui::HttpWeather *ui;
+    Ui::HttpWeather *ui;                //ui对象
     QNetworkAccessManager  manager;     //Http对象
     QPixmap m_pixmap;                   //当前天气图片
     float m_ratio;                      //当前图片的缩放比例

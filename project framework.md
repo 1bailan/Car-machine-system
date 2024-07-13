@@ -135,13 +135,13 @@
 ```cpp
 // State.h
 class Context;
-
+//状态类
 class State {
 public:
     virtual ~State() {}
     virtual void handle(Context* context) = 0;
 };
-
+//环境类（上下文）
 class Context {
 private:
     State* state;
@@ -156,7 +156,7 @@ public:
         state->handle(this);
     }
 };
-
+//具体状态类
 // ConcreteStates.h
 class StartState : public State {
 public:

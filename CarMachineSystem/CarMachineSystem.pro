@@ -10,18 +10,22 @@ CONFIG += c++17
 
 SOURCES += \
     appbt.cpp \
+    concretestates.cpp \
     httpweather.cpp \
     main.cpp \
     mainwindow.cpp \
     musicbt.cpp \
-    setbt.cpp
+    setbt.cpp \
+    state.cpp
 
 HEADERS += \
     appbt.h \
+    concretestates.h \
     httpweather.h \
     mainwindow.h \
     musicbt.h \
-    setbt.h
+    setbt.h \
+    state.h
 
 FORMS += \
     httpweather.ui \

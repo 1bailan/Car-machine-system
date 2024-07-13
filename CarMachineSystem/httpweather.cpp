@@ -188,6 +188,7 @@ void HttpWeather::update_Timer()
     HttpWeather::show_Week();
 }
 
+//显示星期几
 void HttpWeather::show_Week()
 {
     QDate  weekstr = QDate::currentDate();

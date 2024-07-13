@@ -1,9 +1,11 @@
 debug/appbt.o
+debug/concretestates.o
 debug/httpweather.o
 debug/main.o
 debug/mainwindow.o
 debug/musicbt.o
 debug/setbt.o
+debug/state.o
 debug/qrc_UI.o
 debug/moc_appbt.o
 debug/moc_httpweather.o
