@@ -172,7 +172,7 @@ void HttpWeather::show_Pic(int num)
     // m_ratio = float(H) / realH;
     // qDebug()<<100*m_ratio;
 
-    QPixmap pix = m_pixmap.scaledToHeight(H+50);
+    QPixmap pix = m_pixmap.scaledToHeight(H+200);
     ui->PicLb->setPixmap(pix);
 }
 

@@ -20,7 +20,7 @@ void SetBt::mouseReleaseEvent(QMouseEvent *event)
     emit release();     // 释放信号
     emit clicked();     // 点击信号
 
-    qDebug() << "sssss";
+    qDebug() << "设置按钮点击释放\n";
 
     AppBt::mouseReleaseEvent(event);
 }

@@ -10,18 +10,18 @@
         <file>UI/HD-023.png</file>
         <file>UI/HD-024.png</file>
         <file>UI/HD-025.png</file>
-        <file>UI/HD-026.png</file>
+        <file>UI/Music.png</file>
         <file>UI/HD-028.png</file>
-        <file>UI/0.png</file>
+        <file>UI/Rescue.png</file>
         <file>UI/1.png</file>
         <file>UI/2.png</file>
         <file>UI/3.png</file>
         <file>UI/4.png</file>
-        <file>UI/5.png</file>
+        <file>UI/Paid.png</file>
         <file>UI/6.png</file>
         <file>UI/7.png</file>
         <file>UI/8.png</file>
-        <file>UI/9.png</file>
+        <file>UI/GPS.png</file>
         <file>UI/11.png</file>
         <file>UI/12.png</file>
         <file>UI/33.png</file>
@@ -30,8 +30,6 @@
         <file>UI/asas.png</file>
         <file>UI/B.png</file>
         <file>UI/C.png</file>
-        <file>UI/D.png</file>
-        <file>UI/E.png</file>
         <file>UI/ee.png</file>
         <file>UI/er.png</file>
         <file>UI/f.png</file>
@@ -43,7 +41,7 @@
         <file>UI/L.png</file>
         <file>UI/M.png</file>
         <file>UI/N.png</file>
-        <file>UI/O.png</file>
+        <file>UI/BackCar.png</file>
         <file>UI/op.png</file>
         <file>UI/P.png</file>
         <file>UI/Q.png</file>
@@ -53,14 +51,14 @@
         <file>UI/s.png</file>
         <file>UI/ss.png</file>
         <file>UI/T.png</file>
-        <file>UI/tt.png</file>
+        <file>UI/Seat.png</file>
         <file>UI/ty.png</file>
         <file>UI/tyu.png</file>
         <file>UI/U.png</file>
         <file>UI/ui.png</file>
         <file>UI/V.png</file>
         <file>UI/W.png</file>
-        <file>UI/wqe.png</file>
+        <file>UI/Voice.png</file>
         <file>UI/X.png</file>
         <file>UI/Y.png</file>
         <file>UI/Z.png</file>

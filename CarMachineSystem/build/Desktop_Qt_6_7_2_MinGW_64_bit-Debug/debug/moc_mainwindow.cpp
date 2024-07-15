@@ -37,7 +37,14 @@ struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::stringData(
     "MainWindow",
     "onCustomButtonClicked",
-    ""
+    "",
+    "onMusicButtonClicked",
+    "onGPSButtonClicked",
+    "onPaidButtonClicked",
+    "onRescueButtonClicked",
+    "onSeatButtonClicked",
+    "onVoiceButtonClicked",
+    "onBackCarButtonClicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -50,7 +57,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       8,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -58,9 +65,23 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   20,    2, 0x08,    1 /* Private */,
+       1,    0,   62,    2, 0x09,    1 /* Protected */,
+       3,    0,   63,    2, 0x09,    2 /* Protected */,
+       4,    0,   64,    2, 0x09,    3 /* Protected */,
+       5,    0,   65,    2, 0x09,    4 /* Protected */,
+       6,    0,   66,    2, 0x09,    5 /* Protected */,
+       7,    0,   67,    2, 0x09,    6 /* Protected */,
+       8,    0,   68,    2, 0x09,    7 /* Protected */,
+       9,    0,   69,    2, 0x09,    8 /* Protected */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -76,6 +97,20 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
         // method 'onCustomButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onMusicButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onGPSButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onPaidButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onRescueButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onSeatButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onVoiceButtonClicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'onBackCarButtonClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -88,6 +123,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         (void)_t;
         switch (_id) {
         case 0: _t->onCustomButtonClicked(); break;
+        case 1: _t->onMusicButtonClicked(); break;
+        case 2: _t->onGPSButtonClicked(); break;
+        case 3: _t->onPaidButtonClicked(); break;
+        case 4: _t->onRescueButtonClicked(); break;
+        case 5: _t->onSeatButtonClicked(); break;
+        case 6: _t->onVoiceButtonClicked(); break;
+        case 7: _t->onBackCarButtonClicked(); break;
         default: ;
         }
     }
@@ -113,13 +155,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 8)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 8;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 8)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 1;
+        _id -= 8;
     }
     return _id;
 }

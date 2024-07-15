@@ -3,7 +3,7 @@
 * @brief 概述 主要实现按钮的样式
 * @author Bailan
 * @version 版本号(maj.min，主版本.分版本格式)
-* @date 日期: 2024 / xx / xx
+* @date 日期: 2024 / 07 / 10
 */
 #ifndef APPBT_H
 #define APPBT_H

@@ -22,13 +22,13 @@ QWidget#weatherWg {
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="SetBt" name="customButton" native="true">
+   <widget class="SeatBt" name="SeatButton" native="true">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>290</y>
-      <width>120</width>
-      <height>120</height>
+      <x>125</x>
+      <y>350</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -44,13 +44,13 @@ QWidget#weatherWg {
 }</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_2" native="true">
+   <widget class="MusicBt" name="MusicButton" native="true">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>290</y>
-      <width>120</width>
-      <height>120</height>
+      <x>260</x>
+      <y>230</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -66,13 +66,13 @@ QWidget#weatherWg {
 }</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_3" native="true">
+   <widget class="RescueBt" name="RescueButton" native="true">
     <property name="geometry">
      <rect>
-      <x>540</x>
-      <y>290</y>
-      <width>120</width>
-      <height>120</height>
+      <x>620</x>
+      <y>230</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -88,13 +88,13 @@ QWidget#weatherWg {
 }</string>
     </property>
    </widget>
-   <widget class="SetBt" name="widget" native="true">
+   <widget class="GpsBt" name="GPSButton" native="true">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>290</y>
-      <width>120</width>
-      <height>120</height>
+      <x>80</x>
+      <y>230</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -110,13 +110,13 @@ QWidget#weatherWg {
 }</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_5" native="true">
+   <widget class="PaidBt" name="PaidButton" native="true">
     <property name="geometry">
      <rect>
-      <x>410</x>
-      <y>290</y>
-      <width>120</width>
-      <height>120</height>
+      <x>440</x>
+      <y>230</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -132,13 +132,13 @@ QWidget#weatherWg {
 }</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget_6" native="true">
+   <widget class="BackCarBt" name="BackCarButton" native="true">
     <property name="geometry">
      <rect>
-      <x>670</x>
-      <y>290</y>
-      <width>120</width>
-      <height>120</height>
+      <x>575</x>
+      <y>350</y>
+      <width>100</width>
+      <height>100</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -160,7 +160,7 @@ QWidget#weatherWg {
       <x>30</x>
       <y>20</y>
       <width>750</width>
-      <height>230</height>
+      <height>200</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -179,97 +179,133 @@ QWidget#weatherWg {
      <string notr="true"/>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="GPSLb">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>420</y>
+      <x>100</x>
+      <y>330</y>
       <width>61</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>导航</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="VoiceLb">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>420</y>
+      <x>370</x>
+      <y>450</y>
       <width>61</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>语音</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="MusicLb">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>420</y>
-      <width>61</width>
+      <x>255</x>
+      <y>330</y>
+      <width>111</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>音频播放器</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="PaidLb">
     <property name="geometry">
      <rect>
-      <x>440</x>
-      <y>420</y>
-      <width>61</width>
+      <x>450</x>
+      <y>330</y>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>流量充值</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="RescueLb">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>420</y>
-      <width>61</width>
+      <x>630</x>
+      <y>330</y>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>道路救援</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="label_6">
+   <widget class="QLabel" name="BackCarLb">
     <property name="geometry">
      <rect>
-      <x>700</x>
-      <y>420</y>
-      <width>61</width>
+      <x>590</x>
+      <y>450</y>
+      <width>81</width>
       <height>21</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>TextLabel</string>
+     <string>倒车影像</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -278,14 +314,58 @@ QWidget#weatherWg {
    <widget class="QPushButton" name="someButton">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>260</y>
+      <x>370</x>
+      <y>0</y>
       <width>80</width>
       <height>18</height>
      </rect>
     </property>
     <property name="text">
-     <string>PushButton</string>
+     <string>测试状态</string>
+    </property>
+   </widget>
+   <widget class="VoiceBt" name="VoiceButton" native="true">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>350</y>
+      <width>100</width>
+      <height>100</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QWidget{
+	font: 10pt &quot;微软雅黑&quot;;
+    color: #2f3640;
+    background-color: #f5f6fa;
+    border-color: #2f3640;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 2px;
+    padding: 5px;
+}</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="SeatLb">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>450</y>
+      <width>81</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Swis721 BlkEx BT</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>座椅调节</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
   </widget>
@@ -308,9 +388,45 @@ QWidget#weatherWg {
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>SetBt</class>
+   <class>MusicBt</class>
    <extends>QWidget</extends>
-   <header location="global">setbt.h</header>
+   <header location="global">musicbt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>GpsBt</class>
+   <extends>QWidget</extends>
+   <header location="global">gpsbt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>PaidBt</class>
+   <extends>QWidget</extends>
+   <header location="global">paidbt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>RescueBt</class>
+   <extends>QWidget</extends>
+   <header location="global">rescuebt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>SeatBt</class>
+   <extends>QWidget</extends>
+   <header location="global">seatbt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>VoiceBt</class>
+   <extends>QWidget</extends>
+   <header location="global">voicebt.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>BackCarBt</class>
+   <extends>QWidget</extends>
+   <header location="global">backcarbt.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
