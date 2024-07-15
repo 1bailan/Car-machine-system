@@ -67,28 +67,28 @@ void AppBt::mouseReleaseEvent(QMouseEvent *event)
     QWidget::mouseReleaseEvent(event);  // 父类鼠标释放事件
 }
 
-void AppBt::enterEvent(QEnterEvent *event)  // 更改参数类型为 QEnterEvent*
-{
-    if (!m_disabled)
-    {
-        setStyleSheet(
-            "color: #FFFFFF;"               //字体颜色
-            "background-color: #718093;"    //背景颜色
-            "border-color: #2f3640;"        //边框颜色
-            "border-radius: 15px;"          //边框圆角
-            );
-    }
-    QWidget::enterEvent(event);
-}
+//void AppBt::enterEvent(QEnterEvent *event)  // 更改参数类型为 QEnterEvent*
+//{
+//    if (!m_disabled)
+//    {
+//        setStyleSheet(
+//            "color: #FFFFFF;"               //字体颜色
+//            "background-color: #718093;"    //背景颜色
+//            "border-color: #2f3640;"        //边框颜色
+//            "border-radius: 15px;"          //边框圆角
+//            );
+//    }
+//    QWidget::enterEvent(event);
+//}
 
-void AppBt::leaveEvent(QEvent *event)
-{
-    if (!m_disabled)
-    {
-        updateStyle();  // 离开时恢复默认样式
-    }
-    QWidget::leaveEvent(event);
-}
+//void AppBt::leaveEvent(QEvent *event)
+//{
+//    if (!m_disabled)
+//    {
+//        updateStyle();  // 离开时恢复默认样式
+//    }
+//    QWidget::leaveEvent(event);
+//}
 
 void AppBt::updateStyle()
 {

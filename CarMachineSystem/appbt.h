@@ -34,8 +34,8 @@ protected:
     void paintEvent(QPaintEvent *event) override;           //显示事件
     void mousePressEvent(QMouseEvent *event) override;      //鼠标按下事件
     void mouseReleaseEvent(QMouseEvent *event) override;    //鼠标释放事件
-    void enterEvent(QEnterEvent *event) override;           //鼠标进入事件
-    void leaveEvent(QEvent *event) override;                //鼠标离开事件
+//    void enterEvent(QEnterEvent *event) override;           //鼠标进入事件
+//    void leaveEvent(QEvent *event) override;                //鼠标离开事件
 
 private:
     void updateStyle();   //更新样式（按下、释放、进入、离开）

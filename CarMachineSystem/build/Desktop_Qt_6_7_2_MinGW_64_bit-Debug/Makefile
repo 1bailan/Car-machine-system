@@ -409,6 +409,7 @@ Makefile: ../../CarMachineSystem.pro E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/mkspecs/w
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/mkspecs/features/yacc.prf \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/mkspecs/features/lex.prf \
 		../../CarMachineSystem.pro \
+		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Multimedia.prl \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Widgets.prl \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Gui.prl \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Network.prl \
@@ -756,6 +757,7 @@ E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/mkspecs/features/exceptions.prf:
 E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/mkspecs/features/yacc.prf:
 E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/mkspecs/features/lex.prf:
 ../../CarMachineSystem.pro:
+E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Multimedia.prl:
 E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Widgets.prl:
 E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Gui.prl:
 E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/lib/Qt6Network.prl:

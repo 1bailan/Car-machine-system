@@ -6,6 +6,7 @@ release/httpweather.o
 release/main.o
 release/mainwindow.o
 release/musicbt.o
+release/musicplayer.o
 release/paidbt.o
 release/rescuebt.o
 release/seatbt.o
@@ -20,6 +21,7 @@ release/moc_gpsbt.o
 release/moc_httpweather.o
 release/moc_mainwindow.o
 release/moc_musicbt.o
+release/moc_musicplayer.o
 release/moc_paidbt.o
 release/moc_rescuebt.o
 release/moc_seatbt.o

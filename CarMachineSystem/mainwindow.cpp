@@ -2,13 +2,6 @@
 #include "ui_mainwindow.h"
 #include "setbt.h"
 #include "concretestates.h"
-#include "musicbt.h"
-#include "gpsbt.h"
-#include "paidbt.h"
-#include "rescuebt.h"
-#include "seatbt.h"
-#include "voicebt.h"
-#include "backcarbt.h"
 #include <QDebug>
 #include <QHBoxLayout>
 
@@ -28,16 +21,16 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->someButton, &QPushButton::clicked, this, &MainWindow::handle);
 
     // 将某个按钮提升为 SetBt 类
-    SetBt *custombutton = qobject_cast<SetBt *>(ui->SeatButton); // 假设你的按钮对象名为 customButton
-    if (custombutton)
-    {
-        QPixmap pixmap(":/UI/er.png");         // 设置图片路径
-        custombutton->setButtonImage(pixmap);  // 设置按钮图片
-        connect(custombutton, &SetBt::clicked, this, &MainWindow::onCustomButtonClicked);
-    }
+    // SetBt *custombutton = qobject_cast<SetBt *>(ui->SeatButton); // 假设你的按钮对象名为 customButton
+    // if (custombutton)
+    // {
+    //     QPixmap pixmap(":/UI/er.png");         // 设置图片路径
+    //     custombutton->setButtonImage(pixmap);  // 设置按钮图片
+    //     connect(custombutton, &SetBt::clicked, this, &MainWindow::onCustomButtonClicked);
+    // }
 
     //GPS按钮槽函数
-    GpsBt* GPS_button = qobject_cast<GpsBt *>(ui->GPSButton);
+    this->GPS_button = qobject_cast<GpsBt *>(ui->GPSButton);
     if(GPS_button)
     {
         QPixmap pixmap(":/UI/GPS.png");      // 设置图片路径
@@ -46,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     //音乐播放器按钮槽函数
-    MusicBt* Music_button = qobject_cast<MusicBt *>(ui->MusicButton);
+    this->Music_button = qobject_cast<MusicBt *>(ui->MusicButton);
     if(Music_button)
     {
         QPixmap pixmap(":/UI/Music.png");      // 设置图片路径
@@ -55,7 +48,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     //流量充值按钮槽函数
-    PaidBt * Paid_button = qobject_cast<PaidBt *>(ui->PaidButton);
+    this->Paid_button = qobject_cast<PaidBt *>(ui->PaidButton);
     if(Paid_button)
     {
         QPixmap pixmap(":/UI/Paid.png");      // 设置图片路径
@@ -64,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     //道路救援按钮槽函数
-    RescueBt * Rescue_button = qobject_cast<RescueBt *>(ui->RescueButton);
+    this->Rescue_button = qobject_cast<RescueBt *>(ui->RescueButton);
     if(Paid_button)
     {
         QPixmap pixmap(":/UI/Rescue.png");      // 设置图片路径
@@ -73,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     //座椅调节按钮槽函数
-    SeatBt * Seat_button = qobject_cast<SeatBt *>(ui->SeatButton);
+    this->Seat_button = qobject_cast<SeatBt *>(ui->SeatButton);
     if(Seat_button)
     {
         QPixmap pixmap(":/UI/Seat.png");      // 设置图片路径
@@ -82,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     //语音按钮槽函数
-    VoiceBt * Voice_button = qobject_cast<VoiceBt *>(ui->VoiceButton);
+    this->Voice_button = qobject_cast<VoiceBt *>(ui->VoiceButton);
     if(Voice_button)
     {
         QPixmap pixmap(":/UI/Voice.png");      // 设置图片路径
@@ -91,7 +84,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     //倒车影像按钮槽函数
-    BackCarBt * BackCar_button = qobject_cast<BackCarBt *>(ui->BackCarButton);
+    this->BackCar_button = qobject_cast<BackCarBt *>(ui->BackCarButton);
     if(BackCar_button)
     {
         QPixmap pixmap(":/UI/BackCar.png");      // 设置图片路径
@@ -99,6 +92,11 @@ MainWindow::MainWindow(QWidget *parent)
         connect(BackCar_button, &BackCarBt::clicked, this, &MainWindow::onBackCarButtonClicked);
     }
 
+    //创建音乐对象
+    this->Music_obj = new  MusicPlayer();
+    connect(Music_obj, &MusicPlayer::release, this, [=](){
+        this->show();
+    });
 
 }
 
@@ -106,6 +104,14 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete context;
+    delete GPS_button;
+    delete Music_button;
+    delete Paid_button;
+    delete Rescue_button;
+    delete Seat_button;
+    delete Voice_button;
+    delete BackCar_button;
+    delete Music_obj;
 }
 
 void MainWindow::setState(State *state)
@@ -128,20 +134,20 @@ void MainWindow::mousePressEvent(QMouseEvent *event)
     QMainWindow::mousePressEvent(event);
 }
 
-//测试按钮槽函数
-void MainWindow::onCustomButtonClicked()
-{
-    // 自定义按钮点击处理
-    qDebug()<<"槽函数-鼠标被点击(测试)";
-}
+// //测试按钮槽函数
+// void MainWindow::onCustomButtonClicked()
+// {
+//     // 自定义按钮点击处理
+//     qDebug()<<"槽函数-鼠标被点击(测试)";
+// }
 
 void MainWindow::onMusicButtonClicked()
 {
     qDebug()<<"槽函数-鼠标被点击(音乐)";
-    // Music * Music_obj = new  MusicBt();
-    // Music_obj->show();
 
-    // this->hide();
+    Music_obj->show();
+    this->hide();
+
 }
 
 void MainWindow::onGPSButtonClicked()

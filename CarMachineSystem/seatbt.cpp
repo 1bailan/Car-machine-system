@@ -18,7 +18,7 @@ void SeatBt::mouseReleaseEvent(QMouseEvent *event)
     emit release();     // 释放信号
     emit clicked();     // 点击信号
 
-    qDebug() << "座椅调节按钮点击释放\n";
+   qDebug() << "座椅调节按钮点击释放\n";
 
     AppBt::mouseReleaseEvent(event);
 }

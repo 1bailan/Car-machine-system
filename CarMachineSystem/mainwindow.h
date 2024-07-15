@@ -9,6 +9,14 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "musicbt.h"
+#include "gpsbt.h"
+#include "paidbt.h"
+#include "rescuebt.h"
+#include "seatbt.h"
+#include "voicebt.h"
+#include "backcarbt.h"
+#include "musicplayer.h"
 #include "state.h"
 
 QT_BEGIN_NAMESPACE
@@ -32,7 +40,7 @@ protected:
     void mousePressEvent(QMouseEvent *event) override;
 
 protected slots:
-    void onCustomButtonClicked();           //测试按钮槽函数
+    // void onCustomButtonClicked();           //测试按钮槽函数
     void onMusicButtonClicked();            //Music按钮槽函数（音乐）
     void onGPSButtonClicked();              //GPS按钮槽函数（导航）
     void onPaidButtonClicked();             //Paid按钮槽函数（充值）
@@ -40,9 +48,21 @@ protected slots:
     void onSeatButtonClicked();             //Seat按钮槽函数（座椅调节）
     void onVoiceButtonClicked();            //Voice按钮槽函数（语音）
     void onBackCarButtonClicked();          //BackCar按钮槽函数（倒车影像）
+
 private:
-    Ui::MainWindow *ui;
-    Context* context;
+    Ui::MainWindow *ui;                     //UI对象
+    Context* context;                       //上下文对象
+    //按钮对象
+    GpsBt* GPS_button;
+    MusicBt* Music_button;
+    PaidBt * Paid_button;
+    RescueBt * Rescue_button;
+    SeatBt * Seat_button;
+    VoiceBt * Voice_button;
+    BackCarBt * BackCar_button;
+
+    //功能对象
+    MusicPlayer * Music_obj;                //音乐对象
 
 };
 #endif // MAINWINDOW_H

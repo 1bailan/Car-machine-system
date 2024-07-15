@@ -7,6 +7,10 @@
 *****************************************************************************/
 
 #include "../../../mainwindow.h"
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qscreen.h>
+#include <QtNetwork/QSslPreSharedKeyAuthenticator>
+#include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
@@ -36,9 +40,8 @@ namespace {
 struct qt_meta_stringdata_CLASSMainWindowENDCLASS_t {};
 constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::stringData(
     "MainWindow",
-    "onCustomButtonClicked",
-    "",
     "onMusicButtonClicked",
+    "",
     "onGPSButtonClicked",
     "onPaidButtonClicked",
     "onRescueButtonClicked",
@@ -57,7 +60,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,17 +68,15 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   62,    2, 0x09,    1 /* Protected */,
-       3,    0,   63,    2, 0x09,    2 /* Protected */,
-       4,    0,   64,    2, 0x09,    3 /* Protected */,
-       5,    0,   65,    2, 0x09,    4 /* Protected */,
-       6,    0,   66,    2, 0x09,    5 /* Protected */,
-       7,    0,   67,    2, 0x09,    6 /* Protected */,
-       8,    0,   68,    2, 0x09,    7 /* Protected */,
-       9,    0,   69,    2, 0x09,    8 /* Protected */,
+       1,    0,   56,    2, 0x09,    1 /* Protected */,
+       3,    0,   57,    2, 0x09,    2 /* Protected */,
+       4,    0,   58,    2, 0x09,    3 /* Protected */,
+       5,    0,   59,    2, 0x09,    4 /* Protected */,
+       6,    0,   60,    2, 0x09,    5 /* Protected */,
+       7,    0,   61,    2, 0x09,    6 /* Protected */,
+       8,    0,   62,    2, 0x09,    7 /* Protected */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -96,8 +97,6 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_CLASSMainWindowENDCLASS_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<MainWindow, std::true_type>,
-        // method 'onCustomButtonClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onMusicButtonClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onGPSButtonClicked'
@@ -122,14 +121,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<MainWindow *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->onCustomButtonClicked(); break;
-        case 1: _t->onMusicButtonClicked(); break;
-        case 2: _t->onGPSButtonClicked(); break;
-        case 3: _t->onPaidButtonClicked(); break;
-        case 4: _t->onRescueButtonClicked(); break;
-        case 5: _t->onSeatButtonClicked(); break;
-        case 6: _t->onVoiceButtonClicked(); break;
-        case 7: _t->onBackCarButtonClicked(); break;
+        case 0: _t->onMusicButtonClicked(); break;
+        case 1: _t->onGPSButtonClicked(); break;
+        case 2: _t->onPaidButtonClicked(); break;
+        case 3: _t->onRescueButtonClicked(); break;
+        case 4: _t->onSeatButtonClicked(); break;
+        case 5: _t->onVoiceButtonClicked(); break;
+        case 6: _t->onBackCarButtonClicked(); break;
         default: ;
         }
     }
@@ -155,13 +153,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 7;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 7;
     }
     return _id;
 }

@@ -7,6 +7,10 @@
 *****************************************************************************/
 
 #include "../../../videoplayer.h"
+#include <QtGui/qtextcursor.h>
+#include <QtGui/qscreen.h>
+#include <QtNetwork/QSslPreSharedKeyAuthenticator>
+#include <QtNetwork/QSslError>
 #include <QtCore/qmetatype.h>
 
 #include <QtCore/qtmochelpers.h>
