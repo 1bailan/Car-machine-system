@@ -7,7 +7,9 @@ debug/main.o
 debug/mainwindow.o
 debug/musicbt.o
 debug/musicplayer.o
+debug/paid.o
 debug/paidbt.o
+debug/paidclient.o
 debug/rescuebt.o
 debug/seatbt.o
 debug/setbt.o
@@ -22,7 +24,9 @@ debug/moc_httpweather.o
 debug/moc_mainwindow.o
 debug/moc_musicbt.o
 debug/moc_musicplayer.o
+debug/moc_paid.o
 debug/moc_paidbt.o
+debug/moc_paidclient.o
 debug/moc_rescuebt.o
 debug/moc_seatbt.o
 debug/moc_setbt.o

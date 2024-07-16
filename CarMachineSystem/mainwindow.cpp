@@ -4,6 +4,8 @@
 #include "concretestates.h"
 #include <QDebug>
 #include <QHBoxLayout>
+#include <QSqlDatabase>
+#include <QSqlError>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,6 +18,23 @@ MainWindow::MainWindow(QWidget *parent)
     //设置窗口画面大小固定
     setMinimumSize(800, 480);
     setMaximumSize(800, 480);
+
+    //创建数据库
+    this->db = QSqlDatabase::addDatabase("QSQLITE");
+    //设置数据库名称
+    this->db.setDatabaseName("./Server.db");
+    //打开数据库
+    if(!this->db.open())
+    {
+        qDebug()<< db.lastError().text();
+    }
+    //执行创建表格语句
+    QString createSql = "create table if not exists user(id integer primary key,username varchar(255) unique, password varchar(255))";
+    QSqlQuery query;
+    if(!query.exec(createSql))
+    {
+        qDebug()<<query.lastError().text();
+    }
 
     // 连接按钮点击信号到状态切换槽（测试）
     connect(ui->someButton, &QPushButton::clicked, this, &MainWindow::handle);
@@ -95,9 +114,13 @@ MainWindow::MainWindow(QWidget *parent)
     //创建音乐对象
     this->Music_obj = new  MusicPlayer();
     connect(Music_obj, &MusicPlayer::release, this, [=](){
-        this->show();
+        this->show();       //点击退出按钮后让主界面显示
     });
 
+    this->Paid_obj = new PaidClient(nullptr);
+    connect(Paid_obj,&PaidClient::release,this,[=](){
+        this->show();       //点击退出按钮后让主界面显示
+    });
 }
 
 MainWindow::~MainWindow()
@@ -112,6 +135,9 @@ MainWindow::~MainWindow()
     delete Voice_button;
     delete BackCar_button;
     delete Music_obj;
+    QSqlDatabase db = QSqlDatabase::database();
+    db.close();
+    QFile::remove("./Server.db");
 }
 
 void MainWindow::setState(State *state)
@@ -158,6 +184,8 @@ void MainWindow::onGPSButtonClicked()
 void MainWindow::onPaidButtonClicked()
 {
     qDebug()<<"槽函数-鼠标被点击(充值)";
+    Paid_obj->show();
+    this->hide();
 }
 
 void MainWindow::onRescueButtonClicked()

@@ -1,5 +1,7 @@
 QT       += core gui network    #QWebEngine
 QT       += multimedia          #添加音乐模块
+QT       += sql                 #添加数据库
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 #视频播放，若清除需将ffmpeg文件中的bin目录下的.dll文件复制到 debug（build）文件下
@@ -31,7 +33,9 @@ SOURCES += \
     mainwindow.cpp \
     musicbt.cpp \
     musicplayer.cpp \
+    paid.cpp \
     paidbt.cpp \
+    paidclient.cpp \
     rescuebt.cpp \
     seatbt.cpp \
     setbt.cpp \
@@ -48,7 +52,9 @@ HEADERS += \
     mainwindow.h \
     musicbt.h \
     musicplayer.h \
+    paid.h \
     paidbt.h \
+    paidclient.h \
     rescuebt.h \
     seatbt.h \
     setbt.h \
@@ -60,6 +66,8 @@ FORMS += \
     httpweather.ui \
     mainwindow.ui \
     musicplayer.ui \
+    paid.ui \
+    paidclient.ui \
     videoplayer.ui
 
 # Default rules for deployment.

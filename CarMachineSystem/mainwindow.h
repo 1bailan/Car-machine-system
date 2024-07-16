@@ -9,6 +9,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QSqlDatabase>
 #include "musicbt.h"
 #include "gpsbt.h"
 #include "paidbt.h"
@@ -18,6 +19,13 @@
 #include "backcarbt.h"
 #include "musicplayer.h"
 #include "state.h"
+#include "paidclient.h"
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QDebug>
+#include <QSqlError>
+#include <QSqlRecord>
+#include <QCryptographicHash>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -63,6 +71,7 @@ private:
 
     //功能对象
     MusicPlayer * Music_obj;                //音乐对象
-
+    PaidClient * Paid_obj;                  //流量充值界面
+    QSqlDatabase db;                        //数据库对象
 };
 #endif // MAINWINDOW_H

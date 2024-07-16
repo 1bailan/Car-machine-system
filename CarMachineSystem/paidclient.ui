@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PaidClient</class>
+ <widget class="QWidget" name="PaidClient">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#PaidClient{
+border-image: url(:/UI/login.png);
+}</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>160</x>
+     <y>80</y>
+     <width>481</width>
+     <height>291</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="font">
+       <font>
+        <family>宋体</family>
+        <pointsize>48</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(85, 255, 255);</string>
+      </property>
+      <property name="text">
+       <string>登录界面</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,0,2">
+      <item>
+       <widget class="QLineEdit" name="userLd">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>宋体</family>
+          <pointsize>20</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+{
+	border:2px solid #ffffff;
+	border-radius:10px;
+	background-color: rgba(255, 255, 255, 0);
+	color: rgb(0, 170, 255);
+}</string>
+        </property>
+        <property name="placeholderText">
+         <string>用户名：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Maximum</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="passLd">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>宋体</family>
+          <pointsize>20</pointsize>
+          <italic>false</italic>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit
+{
+	border:2px solid #ffffff;
+	border-radius:10px;
+	background-color: rgba(255, 255, 255, 0);
+	color: rgb(0, 170, 255);
+}</string>
+        </property>
+        <property name="placeholderText">
+         <string>密码：</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="registerBt">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 15px 32px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 16px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 15px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>注册</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="loginBt">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 15px 32px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 16px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 15px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+        </property>
+        <property name="text">
+         <string>登录</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="quitBt">
+   <property name="geometry">
+    <rect>
+     <x>640</x>
+     <y>420</y>
+     <width>157</width>
+     <height>59</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>25</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 15px 32px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 16px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 15px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

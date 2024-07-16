@@ -12,11 +12,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     Context* context = new Context(new StartState());
-
     MainWindow w;
-    // w.show();
-
-
     delete context;
+
     return a.exec();
 }

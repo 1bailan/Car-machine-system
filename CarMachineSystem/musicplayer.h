@@ -69,7 +69,7 @@ private slots:
 
     void on_btnRemove_clicked();                        //"移除"按钮，移除列表中的当前项
 
-    void on_btnClose_clicked();
+    void on_btnClose_clicked();                         //"退出"按钮，返回主界面
 
 signals:
     //信号

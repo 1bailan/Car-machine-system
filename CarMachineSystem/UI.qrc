@@ -138,5 +138,6 @@
         <file>white/38@2x.png</file>
         <file>white/99@1x.png</file>
         <file>white/99@2x.png</file>
+        <file>UI/login.png</file>
     </qresource>
 </RCC>
