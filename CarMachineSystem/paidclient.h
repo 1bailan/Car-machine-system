@@ -22,7 +22,7 @@ private slots:
 
     void on_quitBt_clicked();
 
-    bool on_loginBt_clicked();
+    void on_loginBt_clicked();
 
     void on_registerBt_clicked();
 
@@ -30,6 +30,8 @@ private slots:
 
 private:
     Ui::PaidClient *ui;
+
+    int flag;
 };
 
 #endif // PAIDCLIENT_H

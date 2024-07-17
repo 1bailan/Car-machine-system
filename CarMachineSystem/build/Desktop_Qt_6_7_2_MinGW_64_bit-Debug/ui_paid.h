@@ -28,7 +28,7 @@ class Ui_Paid
 public:
     QWidget *centralwidget;
     QWidget *widget;
-    QWidget *widget1;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
@@ -60,22 +60,22 @@ public:
         widget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
 "border-radius:10px;\n"
 "border:2px solid ffffff;"));
-        widget1 = new QWidget(centralwidget);
-        widget1->setObjectName("widget1");
-        widget1->setGeometry(QRect(110, 130, 581, 251));
-        horizontalLayout_2 = new QHBoxLayout(widget1);
+        layoutWidget = new QWidget(centralwidget);
+        layoutWidget->setObjectName("layoutWidget");
+        layoutWidget->setGeometry(QRect(110, 130, 581, 251));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget);
         horizontalLayout_2->setObjectName("horizontalLayout_2");
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName("verticalLayout_2");
-        label_2 = new QLabel(widget1);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName("label_2");
         label_2->setFont(font);
         label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout_2->addWidget(label_2);
 
-        numLb = new QLabel(widget1);
+        numLb = new QLabel(layoutWidget);
         numLb->setObjectName("numLb");
         QFont font1;
         font1.setPointSize(36);
@@ -84,7 +84,7 @@ public:
 
         verticalLayout_2->addWidget(numLb);
 
-        label_4 = new QLabel(widget1);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName("label_4");
         label_4->setFont(font);
         label_4->setAlignment(Qt::AlignCenter);
@@ -98,14 +98,14 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        label = new QLabel(widget1);
+        label = new QLabel(layoutWidget);
         label->setObjectName("label");
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label);
 
-        textEdit = new QLineEdit(widget1);
+        textEdit = new QLineEdit(layoutWidget);
         textEdit->setObjectName("textEdit");
         textEdit->setMinimumSize(QSize(0, 50));
         textEdit->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);\n"
@@ -118,7 +118,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        loginBt = new QPushButton(widget1);
+        loginBt = new QPushButton(layoutWidget);
         loginBt->setObjectName("loginBt");
         loginBt->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #00ffff; /* \346\214\211\351\222\256\347\232\204\351\273\230\350\256\244\350\203\214\346\231\257\351\242\234\350\211\262 */\n"
@@ -155,7 +155,7 @@ public:
 
         verticalLayout->addWidget(loginBt);
 
-        quitBt = new QPushButton(widget1);
+        quitBt = new QPushButton(layoutWidget);
         quitBt->setObjectName("quitBt");
         quitBt->setStyleSheet(QString::fromUtf8("QPushButton {\n"
 "    background-color: #00ffff; /* \346\214\211\351\222\256\347\232\204\351\273\230\350\256\244\350\203\214\346\231\257\351\242\234\350\211\262 */\n"
@@ -201,14 +201,6 @@ public:
         horizontalLayout_2->setStretch(0, 1);
         horizontalLayout_2->setStretch(1, 1);
         Paid->setCentralWidget(centralwidget);
-        widget->raise();
-        loginBt->raise();
-        quitBt->raise();
-        textEdit->raise();
-        label->raise();
-        label_2->raise();
-        numLb->raise();
-        label_4->raise();
         menubar = new QMenuBar(Paid);
         menubar->setObjectName("menubar");
         menubar->setGeometry(QRect(0, 0, 800, 26));

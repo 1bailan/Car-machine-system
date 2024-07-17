@@ -43,9 +43,11 @@ void PaidClient::on_quitBt_clicked()
 }
 
 
-bool PaidClient::on_loginBt_clicked() {
+void PaidClient::on_loginBt_clicked()
+{
     QString username = ui->userLd->text();
     QString password = ui->passLd->text();
+    this->flag = 0;
 
     if (username.isEmpty() || password.isEmpty()) {
         QMessageBox msgBox;
@@ -53,7 +55,8 @@ bool PaidClient::on_loginBt_clicked() {
         msgBox.setIcon(QMessageBox::Warning);
         msgBox.setFixedSize(300, 150);
         msgBox.exec();
-        return false;
+        flag = 0;
+        return;
     }
 
     // 密码加密
@@ -74,11 +77,11 @@ bool PaidClient::on_loginBt_clicked() {
             QSqlRecord record = query.record();
             qDebug() << record.value("username").toString() << record.value("password").toString();
             qDebug() << "登录成功";
-            QMessageBox msgBox;
-            msgBox.setText("登录成功！");
-            msgBox.setIcon(QMessageBox::Information);
-            msgBox.setFixedSize(300, 150);
-            msgBox.exec();
+            // QMessageBox msgBox;
+            // msgBox.setText("登录成功！");
+            // msgBox.setIcon(QMessageBox::Information);
+            // msgBox.setFixedSize(300, 150);
+            // msgBox.exec();
         } else {
             qDebug() << "登录失败";
             QMessageBox msgBox;
@@ -86,10 +89,12 @@ bool PaidClient::on_loginBt_clicked() {
             msgBox.setIcon(QMessageBox::Warning);
             msgBox.setFixedSize(300, 150);
             msgBox.exec();
-            return false;
+            flag = 0;
+            return;
         }
     }
-    return true;
+    flag = 1;
+    return;
 }
 
 void PaidClient::on_registerBt_clicked() {
@@ -150,10 +155,14 @@ void PaidClient::on_registerBt_clicked() {
 void PaidClient::handleLogin()
 {
     Paid * paid = new Paid(this);
-    paid->show();
 
     connect(paid,&Paid::quit,this,&PaidClient::on_quitBt_clicked);
 
-    this->hide();
+    if(this->flag)
+    {
+        paid->show();
+
+        this->hide();
+    }
 }
 

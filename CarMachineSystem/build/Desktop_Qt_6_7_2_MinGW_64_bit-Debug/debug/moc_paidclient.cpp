@@ -75,7 +75,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSPaidClientENDCLASS[] = {
 
  // slots: parameters
     QMetaType::Void,
-    QMetaType::Bool,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -96,7 +96,7 @@ Q_CONSTINIT const QMetaObject PaidClient::staticMetaObject = { {
         // method 'on_quitBt_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_loginBt_clicked'
-        QtPrivate::TypeAndForceComplete<bool, std::false_type>,
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_registerBt_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'handleLogin'
@@ -113,8 +113,7 @@ void PaidClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         switch (_id) {
         case 0: _t->release(); break;
         case 1: _t->on_quitBt_clicked(); break;
-        case 2: { bool _r = _t->on_loginBt_clicked();
-            if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
+        case 2: _t->on_loginBt_clicked(); break;
         case 3: _t->on_registerBt_clicked(); break;
         case 4: _t->handleLogin(); break;
         default: ;
@@ -129,6 +128,7 @@ void PaidClient::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             }
         }
     }
+    (void)_a;
 }
 
 const QMetaObject *PaidClient::metaObject() const

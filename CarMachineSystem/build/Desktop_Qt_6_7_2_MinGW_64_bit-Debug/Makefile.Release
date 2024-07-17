@@ -215,6 +215,7 @@ release/qrc_UI.cpp: ../../UI.qrc \
 		../../UI/L.png \
 		../../UI/HD-001-02.png \
 		../../UI/HD-016-02.png \
+		../../UI/ewm.png \
 		../../UI/6.png \
 		../../UI/T.png \
 		../../UI/1.png \
@@ -9553,7 +9554,9 @@ release/paid.o: ../../paid.cpp ../../paid.h \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtWidgets/QStatusBar \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtWidgets/qstatusbar.h \
 		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
-		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtWidgets/QWidget
+		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtWidgets/QWidget \
+		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtGui/QPainter \
+		E:/APP/QT/Qt_6_7_1/6.7.2/mingw_64/include/QtGui/qpainter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release/paid.o ../../paid.cpp
 
 release/paidbt.o: ../../paidbt.cpp ../../paidbt.h \

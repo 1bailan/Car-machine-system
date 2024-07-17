@@ -139,5 +139,6 @@
         <file>white/99@1x.png</file>
         <file>white/99@2x.png</file>
         <file>UI/login.png</file>
+        <file>UI/ewm.png</file>
     </qresource>
 </RCC>

@@ -37,7 +37,7 @@ border-radius:10px;
 border:2px solid ffffff;</string>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>110</x>
@@ -218,14 +218,6 @@ QPushButton:disabled {
      </item>
     </layout>
    </widget>
-   <zorder>widget</zorder>
-   <zorder>loginBt</zorder>
-   <zorder>quitBt</zorder>
-   <zorder>textEdit</zorder>
-   <zorder>label</zorder>
-   <zorder>label_2</zorder>
-   <zorder>numLb</zorder>
-   <zorder>label_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
