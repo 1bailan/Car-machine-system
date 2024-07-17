@@ -20,6 +20,8 @@
 #include "musicplayer.h"
 #include "state.h"
 #include "paidclient.h"
+#include "emailsender.h"
+#include "backcar.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
@@ -43,7 +45,7 @@ public:
 
     void setState(State* state);
     void handle();
-
+    QTimer* mtimer;
 protected:
     void mousePressEvent(QMouseEvent *event) override;
 
@@ -54,9 +56,8 @@ protected slots:
     void onPaidButtonClicked();             //Paid按钮槽函数（充值）
     void onRescueButtonClicked();           //Rescue按钮槽函数（道路救援）
     void onSeatButtonClicked();             //Seat按钮槽函数（座椅调节）
-    void onVoiceButtonClicked();            //Voice按钮槽函数（语音）
+    // void onVoiceButtonClicked();            //Voice按钮槽函数（语音）
     void onBackCarButtonClicked();          //BackCar按钮槽函数（倒车影像）
-
 private:
     Ui::MainWindow *ui;                     //UI对象
     Context* context;                       //上下文对象
@@ -73,5 +74,8 @@ private:
     MusicPlayer * Music_obj;                //音乐对象
     PaidClient * Paid_obj;                  //流量充值界面
     QSqlDatabase db;                        //数据库对象
+    EmailSender *emailSender;              //邮箱对象
+    BackCar * backcar_obj;                 //倒车对象
+
 };
 #endif // MAINWINDOW_H

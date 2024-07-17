@@ -3,6 +3,8 @@
 
 #include <QMessageBox>
 #include <QPainter>
+#include <QSqlQuery>
+#include <QSqlRecord>
 #include <QTimer>
 
 Paid::Paid(QWidget *parent)
@@ -34,6 +36,11 @@ Paid::~Paid()
 {
     delete ui;
     delete this->mtimer;
+}
+
+void Paid::setInfo(QString username)
+{
+    this->username = username;
 }
 
 void Paid::on_loginBt_clicked()
@@ -70,5 +77,28 @@ void Paid::num_change()
     QString Gb =QString::number(AgoGb)+"GB";
     ui->numLb->setText(Gb);
     // qDebug()<<AgoGb;
-}
 
+    QString insertSql = QString("insert into user(paid) values('%1');").arg(this->AgoGb);
+
+    qDebug()<<this->AgoGb;
+    QSqlQuery query;
+    if(!query.exec(insertSql))
+    {
+        qDebug()<<"插入失败";
+    }
+    else
+    {
+        qDebug()<<"插入成功！";
+    }
+
+
+    QString selectSql = QString("select * from user where username='%1';").arg(this->username);
+    query.exec(selectSql);
+    while(query.next())
+    {
+        //保存一行数据
+        QSqlRecord record = query.record();
+        qDebug()<<record.value(0).toInt() << record.value("username").toString()<<record.value(2).toString()<<record.value(3).toInt();
+    }
+}
+// "create table if not exists user(id integer primary key,username varchar(255) unique, password varchar(255),paid integer)";

@@ -1,6 +1,9 @@
 release/appbt.o
+release/backcar.o
 release/backcarbt.o
 release/concretestates.o
+release/customdialog.o
+release/emailsender.o
 release/gpsbt.o
 release/httpweather.o
 release/main.o
@@ -18,7 +21,10 @@ release/videoplayer.o
 release/voicebt.o
 release/qrc_UI.o
 release/moc_appbt.o
+release/moc_backcar.o
 release/moc_backcarbt.o
+release/moc_customdialog.o
+release/moc_emailsender.o
 release/moc_gpsbt.o
 release/moc_httpweather.o
 release/moc_mainwindow.o

@@ -228,7 +228,7 @@ VideoPlayer::~VideoPlayer()
 
 void VideoPlayer::playVideo(const char *videoPath)
 {
-    qDebug() << __LINE__;
+    // qDebug() << __LINE__;
     unsigned char *buf;           // 用于存储视频数据
     int isVideo = -1;             // 用于判断是否是视频流
     unsigned int streamIndex = 0; // streamIndex用于存储视频流的索引。
@@ -266,7 +266,7 @@ void VideoPlayer::playVideo(const char *videoPath)
             break;
         }
     }
-    qDebug() << __LINE__;
+    // qDebug() << __LINE__;
     // 没有视频流就退出
     if (isVideo == -1)
     {
@@ -372,7 +372,7 @@ void VideoPlayer::playVideo(const char *videoPath)
                         sws_scale(pSwsCtx, (const unsigned char *const *)pAVframe->data, pAVframe->linesize, 0, pAVctx->height, pAVframeRGB->data, pAVframeRGB->linesize);
                         QImage img((uchar *)pAVframeRGB->data[0], pAVctx->width, pAVctx->height, QImage::Format_RGB32);
                         ui->videoLb->setPixmap(QPixmap::fromImage(img));
-                        qDebug() << __LINE__;
+                        // qDebug() << __LINE__;
                     }
                     else if (ret != AVERROR(EAGAIN) && ret != AVERROR_EOF)
                     {

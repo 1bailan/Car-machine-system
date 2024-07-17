@@ -15,6 +15,7 @@ public:
     explicit Paid(QWidget *parent = nullptr);
     ~Paid();
 
+    void setInfo(QString username);         //正向传递接受数据
 private slots:
     void on_loginBt_clicked();
 
@@ -32,6 +33,7 @@ private:
     int AgoGb = 100;
     int TextGb;
     QTimer * mtimer;
+    QString username;
 };
 
 #endif // PAID_H

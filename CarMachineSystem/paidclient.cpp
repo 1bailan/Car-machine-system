@@ -98,7 +98,7 @@ void PaidClient::on_loginBt_clicked()
 }
 
 void PaidClient::on_registerBt_clicked() {
-    QString username = ui->userLd->text();
+    this->username = ui->userLd->text();
     QString password = ui->passLd->text();
 
     if (username.isEmpty() || password.isEmpty()) {
@@ -155,6 +155,8 @@ void PaidClient::on_registerBt_clicked() {
 void PaidClient::handleLogin()
 {
     Paid * paid = new Paid(this);
+
+    paid->setInfo(this->username);      //传参正向传递
 
     connect(paid,&Paid::quit,this,&PaidClient::on_quitBt_clicked);
 

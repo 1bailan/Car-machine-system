@@ -9,6 +9,13 @@ MusicPlayer::MusicPlayer(QWidget *parent)
 {
     ui->setupUi(this);
 
+    //设置主界面背景
+    QPixmap  bkgnd(":/UI/login.png");  // 确保图片在资源文件中正确配置
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, bkgnd);  // 使用 QPalette::Window 替换 QPalette::Background
+    this->setPalette(palette);
+
     ui->listWidget->installEventFilter(this);                         // 安装事件过滤器：用来过滤和处理与列表部件（listWidget）相关的事件
     ui->listWidget->setDragEnabled(true);                             // 允许拖放操作
     ui->listWidget->setDragDropMode(QAbstractItemView::InternalMove); // 列表项可在组件内部中被移动

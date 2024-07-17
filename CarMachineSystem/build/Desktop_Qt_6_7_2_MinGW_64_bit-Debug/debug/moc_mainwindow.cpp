@@ -46,7 +46,6 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "onPaidButtonClicked",
     "onRescueButtonClicked",
     "onSeatButtonClicked",
-    "onVoiceButtonClicked",
     "onBackCarButtonClicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
@@ -60,7 +59,7 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       6,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,16 +67,14 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   56,    2, 0x09,    1 /* Protected */,
-       3,    0,   57,    2, 0x09,    2 /* Protected */,
-       4,    0,   58,    2, 0x09,    3 /* Protected */,
-       5,    0,   59,    2, 0x09,    4 /* Protected */,
-       6,    0,   60,    2, 0x09,    5 /* Protected */,
-       7,    0,   61,    2, 0x09,    6 /* Protected */,
-       8,    0,   62,    2, 0x09,    7 /* Protected */,
+       1,    0,   50,    2, 0x09,    1 /* Protected */,
+       3,    0,   51,    2, 0x09,    2 /* Protected */,
+       4,    0,   52,    2, 0x09,    3 /* Protected */,
+       5,    0,   53,    2, 0x09,    4 /* Protected */,
+       6,    0,   54,    2, 0x09,    5 /* Protected */,
+       7,    0,   55,    2, 0x09,    6 /* Protected */,
 
  // slots: parameters
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -107,8 +104,6 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onSeatButtonClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        // method 'onVoiceButtonClicked'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onBackCarButtonClicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
@@ -126,8 +121,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->onPaidButtonClicked(); break;
         case 3: _t->onRescueButtonClicked(); break;
         case 4: _t->onSeatButtonClicked(); break;
-        case 5: _t->onVoiceButtonClicked(); break;
-        case 6: _t->onBackCarButtonClicked(); break;
+        case 5: _t->onBackCarButtonClicked(); break;
         default: ;
         }
     }
@@ -153,13 +147,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 6)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 6;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 6)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 6;
     }
     return _id;
 }

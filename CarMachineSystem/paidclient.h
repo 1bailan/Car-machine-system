@@ -30,7 +30,7 @@ private slots:
 
 private:
     Ui::PaidClient *ui;
-
+    QString username;       //用户名
     int flag;
 };
 

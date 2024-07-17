@@ -5,7 +5,9 @@ QT       += sql                 #添加数据库
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 #视频播放，若清除需将ffmpeg文件中的bin目录下的.dll文件复制到 debug（build）文件下
-INCLUDEPATH += $$PWD/ffmpeg/include
+INCLUDEPATH += $$PWD/ffmpeg/include\
+                C:\opencv452\include\
+                C:\opencv452\include\opencv2
 
 # 链接库文件
 LIBS += $$PWD/ffmpeg/lib/avcodec.lib\
@@ -15,7 +17,8 @@ LIBS += $$PWD/ffmpeg/lib/avcodec.lib\
         $$PWD/ffmpeg/lib/avutil.lib\
         $$PWD/ffmpeg/lib/postproc.lib\
         $$PWD/ffmpeg/lib/swresample.lib\
-        $$PWD/ffmpeg/lib/swscale.lib
+        $$PWD/ffmpeg/lib/swscale.lib\
+        C:\opencv452\x64\mingw\lib\libopencv_*  #添加opencv库
 
 CONFIG += c++17
 
@@ -25,8 +28,11 @@ CONFIG += c++17
 
 SOURCES += \
     appbt.cpp \
+    backcar.cpp \
     backcarbt.cpp \
     concretestates.cpp \
+    customdialog.cpp \
+    emailsender.cpp \
     gpsbt.cpp \
     httpweather.cpp \
     main.cpp \
@@ -45,8 +51,11 @@ SOURCES += \
 
 HEADERS += \
     appbt.h \
+    backcar.h \
     backcarbt.h \
     concretestates.h \
+    customdialog.h \
+    emailsender.h \
     gpsbt.h \
     httpweather.h \
     mainwindow.h \
@@ -63,6 +72,7 @@ HEADERS += \
     voicebt.h
 
 FORMS += \
+    backcar.ui \
     httpweather.ui \
     mainwindow.ui \
     musicplayer.ui \

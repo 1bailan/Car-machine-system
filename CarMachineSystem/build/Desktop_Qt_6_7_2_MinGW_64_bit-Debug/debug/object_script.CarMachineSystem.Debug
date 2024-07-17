@@ -1,6 +1,9 @@
 debug/appbt.o
+debug/backcar.o
 debug/backcarbt.o
 debug/concretestates.o
+debug/customdialog.o
+debug/emailsender.o
 debug/gpsbt.o
 debug/httpweather.o
 debug/main.o
@@ -18,7 +21,10 @@ debug/videoplayer.o
 debug/voicebt.o
 debug/qrc_UI.o
 debug/moc_appbt.o
+debug/moc_backcar.o
 debug/moc_backcarbt.o
+debug/moc_customdialog.o
+debug/moc_emailsender.o
 debug/moc_gpsbt.o
 debug/moc_httpweather.o
 debug/moc_mainwindow.o

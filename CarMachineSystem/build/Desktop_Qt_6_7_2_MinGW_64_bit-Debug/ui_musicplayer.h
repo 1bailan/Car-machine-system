@@ -142,6 +142,7 @@ public:
         listWidget = new QListWidget(splitter);
         listWidget->setObjectName("listWidget");
         listWidget->setFont(font);
+        listWidget->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
         listWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
         listWidget->setDragEnabled(true);
         listWidget->setDragDropMode(QAbstractItemView::InternalMove);
@@ -157,6 +158,7 @@ public:
         verticalLayout->setObjectName("verticalLayout");
         labPic = new QLabel(scrollAreaWidgetContents);
         labPic->setObjectName("labPic");
+        labPic->setStyleSheet(QString::fromUtf8(""));
         labPic->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(labPic);
