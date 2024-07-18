@@ -1,0 +1,126 @@
+<!--
+ * @Author       : ZhangDingNian
+ * @Date         : 2024-07-17 13:46:00
+ * @LastEditors  : ZhangDingNian
+ * @LastEditTime : 2024-07-18 09:39:25
+-->
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>设置地图当前行政区</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: "e51f81770886b68b2ae30ab5ab4943fa",
+        };
+    </script>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=43d0cc28e654feef79fbf3ba444f12ae&plugin=AMap.Driving"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="qwebchannel.js"></script>
+    <script>
+        var webObj; 
+        var curcity;
+        var driving;
+        var map = new AMap.Map('container', {
+            zoom: 13,
+            center: [116.397428, 39.90923],//地图中心点
+            resizeEnable: true
+        });
+
+        // 初始化 autoComplete 对象
+        AMap.plugin(['AMap.Autocomplete'], function () {
+            autoComplete = new AMap.Autocomplete({});
+        });
+
+        function getCurCity()//用来获取当前地图中心点所在城市
+        {
+            map.getCity(function (place) {
+                if (place.city == "") {
+                    console.log("City is empty, setting province:", place.province);
+                    autoComplete.setCity(place.province);
+                    curcity = place.province;
+                }
+                else {
+                    console.log("City found, setting city:", place.city);
+                    autoComplete.setCity(place.city);
+                    curcity = place.city;
+                    console.log(curcity);
+                }
+                console.log(curcity);
+                foo.setCurCity(curcity);
+            });
+        }
+
+        function mySetCity(city)//用来设置地图显示以及设置"输入提示"功能的城市限制
+        {
+            console.log(city);
+            map.setCity(city, function () {
+                getCurCity();
+            });
+        }
+
+        function mySreachPostion(keyword) {
+            autoComplete.search(keyword, function (status, result) {
+                if (status == "complete") {
+                    console.log("检索成功");
+                    console.log(result);
+                    foo.setSearchResult(result);
+                }
+                else {
+                    console.log("检索失败");
+                    console.log(result);
+                }
+
+            })
+        }
+
+        function planDrivingRoute(startCoords, endCoords) {
+        // 构造起点和终点的 AMap.LngLat 对象
+        var startLngLat = new AMap.LngLat(startCoords[0], startCoords[1]);
+        var endLngLat = new AMap.LngLat(endCoords[0], endCoords[1]);
+        
+        //构造路线导航类
+        driving = new AMap.Driving({
+            map: map
+        }); 
+        // 根据起终点经纬度规划驾车导航路线
+        driving.search(startLngLat, endLngLat, function(status, result) {
+            // result 即是对应的驾车导航信息，相关数据结构文档请参考  https://lbs.amap.com/api/javascript-api/reference/route-search#m_DrivingResult
+            if (status === 'complete') {
+                log.success('绘制驾车路线完成')
+            } else {
+                log.error('获取驾车数据失败：' + result)
+            }
+        });
+        }   
+
+        new QWebChannel(qt.webChannelTransport,
+            function (channel) {
+                var webObj = channel.objects.webObj;
+                window.foo = webObj;
+                webObj.cityChanged.connect(mySetCity);
+                getCurCity();
+            });
+
+
+    </script>
+</body>
+
+</html>

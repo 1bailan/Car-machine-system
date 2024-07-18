@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Webmap</class>
+ <widget class="QMainWindow" name="Webmap">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>480</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="5,2">
+      <item>
+       <widget class="QWebEngineView" name="webView" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout" stretch="1,1,1,5,1,1,1,0">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLineEdit" name="cityNameEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="setCityBt">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 6px 12px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 12px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 5px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+            </property>
+            <property name="text">
+             <string>移动</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>当前城市：</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="curCityLb">
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="postionSreachEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="placeholderText">
+           <string>搜索</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QListWidget" name="positionListWidget">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,1">
+          <item>
+           <widget class="QLineEdit" name="startPostionEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="setStartPostionBt">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 6px 12px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 12px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 5px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+            </property>
+            <property name="text">
+             <string>设置起点</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,1">
+          <item>
+           <widget class="QLineEdit" name="endPostionEdit">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="setEndPostionBt">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <family>微软雅黑</family>
+              <pointsize>-1</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 6px 12px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 12px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 5px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+            </property>
+            <property name="text">
+             <string>设置终点</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QPushButton" name="startNavBt">
+          <property name="font">
+           <font>
+            <family>微软雅黑</family>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 8px 18px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 12px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 5px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+          </property>
+          <property name="text">
+           <string>开始导航</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="closeBt">
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+    background-color: #00ffff; /* 按钮的默认背景颜色 */
+    color: white; /* 按钮的文字颜色 */
+    border: none; /* 无边框 */
+    padding: 8px 18px; /* 按钮的内边距 */
+    text-align: center; /* 文字居中对齐 */
+    font-size: 12px; /* 字体大小 */
+    margin: 4px 2px; /* 外边距 */
+    border-radius: 5px; /* 圆角边框 */
+}
+
+QPushButton:hover {
+    background-color: #45a049; /* 鼠标悬停时的背景颜色 */
+}
+
+QPushButton:pressed {
+    background-color: #2e7d32; /* 按下时的背景颜色 */
+    padding-top: 19px; /* 按下时的内边距变化，模拟位移效果 */
+    padding-bottom: 11px; /* 按下时的内边距变化，模拟位移效果 */
+}
+
+QPushButton:focus {
+    background-color: #4CAF50; /* 焦点状态时的背景颜色 */
+}
+
+QPushButton:disabled {
+    background-color: #cccccc; /* 禁用状态时的背景颜色 */
+    color: #666666; /* 禁用状态时的文字颜色 */
+}
+</string>
+          </property>
+          <property name="text">
+           <string>退出导航</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>17</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">qwebengineview.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="https://cache.amap.com/lbs/static/main1119.css"/>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+          securityJsCode: "e51f81770886b68b2ae30ab5ab4943fa",
+        };
+      </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=43d0cc28e654feef79fbf3ba444f12ae"></script>
+    <script type="text/javascript" src="https://cache.amap.com/lbs/static/addToolbar.js"></script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <script src="qwebchannel.js"></script> 
+    <script type="text/javascript">
+        var map = new AMap.Map('container', {
+            resizeEnable: true, //是否监控地图容器尺寸变化
+            zoom: 11, //初始化地图层级
+            center: [116.397428, 39.90923], //初始化地图中心点
+        });
+
+        var autoComplete;
+        //加载输入提示插件
+        map.plugin(['AMap.Autocomplete'], function () {
+            let autoOptions = {
+                city: '010' //城市，默认全国
+            };
+            autoComplete = new AMap.Autocomplete(autoOptions);
+        });
+
+        function print()
+        {
+            console.log("print called");
+        }
+
+
+        function testSetCity(city)//用来设置地图显示以及设置"输入提示"功能的城市限制
+        {
+            console.log(city);
+            map.getCity(city);
+            print();
+        }
+
+
+
+        new QWebChannel(qt.webChannelTransport,
+            function (channel) {
+                var webObj = channel.objects.webObj;
+                window.foo = webObj;
+                webObj.cityChanged.connect(testSetCity);
+
+            });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!--
+ * @Author       : ZhangDingNian
+ * @Date         : 2024-07-16 16:48:12
+ * @LastEditors  : ZhangDingNian
+ * @LastEditTime : 2024-07-17 10:50:56
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title></title>
+</head>
+<body>
+  <script src="qwebchannel.js"></script> 
+  <script type="text/javascript">
+
+  var updateattribute = function(text) {
+      console.log(text);
+      var div = document.getElementById('content');
+      if (!div) {
+        div = document.createElement('div');
+        div.id = 'content';
+        document.body.appendChild(div);
+      }
+      div.textContent = text;
+    }
+
+  new QWebChannel(qt.webChannelTransport,
+  function(channel){
+  var webObj = channel.objects.webObj;
+  window.foo = webObj;
+  webObj.cityChanged.connect(updateattribute);
+  });
+  </script>
+</body>
+</html>

@@ -1,10 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "setbt.h"
-#include "concretestates.h"
-#include "customdialog.h"
-#include "emailsender.h"
-#include "backcar.h"
+#include "webmap.h"
 #include <QDebug>
 #include <QDialog>
 #include <QHBoxLayout>
@@ -16,11 +12,11 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , context(new Context(new StartState()))
-    , emailSender(new EmailSender(this))
 {
     ui->setupUi(this);
     //初始化状态
     handle();
+
     ui->standLb->hide();
 
     //设置主界面背景
@@ -35,6 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
     setMaximumSize(800, 480);
 
     mtimer = new QTimer();
+
     connect(mtimer,&QTimer::timeout,this,[this](){
         setState(new StandbyState());
         handle();  // 调用handle函数,调整状态
@@ -61,7 +58,10 @@ MainWindow::MainWindow(QWidget *parent)
     }
 
     // 连接按钮点击信号到状态切换槽（测试）
+    ui->someButton->hide();
     connect(ui->someButton, &QPushButton::clicked, this, &MainWindow::handle);
+
+    /********************************构建按钮槽函数***********************************/
 
     // 将某个按钮提升为 SetBt 类
     // SetBt *custombutton = qobject_cast<SetBt *>(ui->SeatButton); // 假设你的按钮对象名为 customButton
@@ -116,6 +116,9 @@ MainWindow::MainWindow(QWidget *parent)
         Seat_button->setButtonImage(pixmap);  // 设置按钮图片
         connect(Seat_button, &SeatBt::clicked, this, &MainWindow::onSeatButtonClicked);
 
+    this->email = new EmailSender("smtp.163.com", 25);
+
+
     }
 
     //语音按钮槽函数
@@ -128,13 +131,15 @@ MainWindow::MainWindow(QWidget *parent)
     // }
 
     //倒车影像按钮槽函数
-    this->BackCar_button = qobject_cast<BackCarBt *>(ui->BackCarButton);
-    if(BackCar_button)
-    {
-        QPixmap pixmap(":/UI/BackCar.png");      // 设置图片路径
-        BackCar_button->setButtonImage(pixmap);  // 设置按钮图片
-        connect(BackCar_button, &BackCarBt::clicked, this, &MainWindow::onBackCarButtonClicked);
-    }
+    // this->BackCar_button = qobject_cast<BackCarBt *>(ui->BackCarButton);
+    // if(BackCar_button)
+    // {
+    //     QPixmap pixmap(":/UI/BackCar.png");      // 设置图片路径
+    //     BackCar_button->setButtonImage(pixmap);  // 设置按钮图片
+    //     connect(BackCar_button, &BackCarBt::clicked, this, &MainWindow::onBackCarButtonClicked);
+    // }
+
+    /********************************构建对象***********************************/
 
     //创建音乐对象
     this->Music_obj = new  MusicPlayer();
@@ -143,17 +148,27 @@ MainWindow::MainWindow(QWidget *parent)
         mtimer->start(5000);
     });
 
+    //
     this->Paid_obj = new PaidClient(nullptr);
     connect(Paid_obj,&PaidClient::release,this,[=](){
         this->show();       //点击退出按钮后让主界面显示
         mtimer->start(5000);
     });
 
-    this->backcar_obj = new BackCar(nullptr);
-    connect(backcar_obj,&BackCar::release,this,[=](){
+    // this->backcar_obj = new BackCar(nullptr);
+    // connect(backcar_obj,&BackCar::release,this,[=](){
+    //     this->show();       //点击退出按钮后让主界面显示
+    //     mtimer->start(5000);
+    // });
+
+    //地图对象
+    this->map = new Webmap(nullptr);
+    connect(map,&Webmap::release,this,[=](){
         this->show();       //点击退出按钮后让主界面显示
         mtimer->start(5000);
     });
+
+
 }
 
 MainWindow::~MainWindow()
@@ -166,9 +181,9 @@ MainWindow::~MainWindow()
     delete Rescue_button;
     delete Seat_button;
     delete Voice_button;
-    delete BackCar_button;
+    // delete BackCar_button;
     delete Music_obj;
-    delete emailSender;
+    delete email;
     QSqlDatabase db = QSqlDatabase::database();
     db.close();
     QFile::remove("./Server.db");
@@ -183,6 +198,34 @@ void MainWindow::handle()
 {
     context->request(this);
 }
+
+
+void MainWindow::startVideo()
+{
+    // 创建视频播放器
+    VideoPlayer *player = new VideoPlayer();
+    player->show();
+    // 连接视频播放结束信号到槽函数
+
+    connect(player, &VideoPlayer::videoFinished, this, &MainWindow::myplayVideo);
+
+    // 播放视频
+    player->playVideo("./output2.mp4");
+}
+
+void MainWindow::myplayVideo()
+{
+    qDebug() << "视频播放结束";
+    setState(new RunningState());
+    qDebug() << __LINE__;
+    // 视频播放完毕后进入主界面
+    handle();  // 调用handle函数,调整状态
+
+    // player->deleteLater();
+    delete sender();
+    qDebug() << __LINE__;
+}
+
 
 void MainWindow::mousePressEvent(QMouseEvent *event)
 {
@@ -210,13 +253,15 @@ void MainWindow::onMusicButtonClicked()
     mtimer->stop();
     Music_obj->show();
     this->hide();
-
 }
 
 void MainWindow::onGPSButtonClicked()
 {
     mtimer->stop();
     qDebug()<<"槽函数-鼠标被点击(GPS)";
+
+    map->show();
+    this->hide();
 }
 
 void MainWindow::onPaidButtonClicked()
@@ -238,17 +283,8 @@ void MainWindow::onRescueButtonClicked()
    {
        mtimer->start(5000);
    }
-    // 使用适当的SMTP服务器信息和用户凭据
-    QString server = "smtp.163.com";
-    short port = 25;
-    QString username = "bailan1632024@163.com";
-    QString password = "WVXZCUTCDQMVPGQQ";
-    QString to = "1789414411@qq.com";
-    QString subject = "测试主题";
-    QString body = "测试内容";
-
-    emailSender->sendEmail(server, port, username, password, to, subject, body);
-
+    //发送信息
+   this->email->sendEmail("bailan1632024@163.com", "WVXZCUTCDQMVPGQQ", "1789414411@qq.com", "！！注意！！", "已收到您的求助信息，正派遣医护人员前往现场");
 }
 
 void MainWindow::onSeatButtonClicked()
@@ -268,8 +304,8 @@ void MainWindow::onBackCarButtonClicked()
 {
     mtimer->stop();
     qDebug()<<"槽函数-鼠标被点击(倒车影像)";
-    backcar_obj->show();
-    this->hide();
+    // backcar_obj->show();
+    // this->hide();
 }
 
 

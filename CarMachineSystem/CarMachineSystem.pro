@@ -1,8 +1,15 @@
 QT       += core gui network    #QWebEngine
 QT       += multimedia          #添加音乐模块
 QT       += sql                 #添加数据库
+QT       += webenginewidgets    #添加数据库
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+msvc {
+    QMAKE_CFLAGS += /utf-8
+    QMAKE_CXXFLAGS += /utf-8
+}
 
 #视频播放，若清除需将ffmpeg文件中的bin目录下的.dll文件复制到 debug（build）文件下
 INCLUDEPATH += $$PWD/ffmpeg/include\
@@ -47,7 +54,9 @@ SOURCES += \
     setbt.cpp \
     state.cpp \
     videoplayer.cpp \
-    voicebt.cpp
+    voicebt.cpp \
+    webclass.cpp \
+    webmap.cpp
 
 HEADERS += \
     appbt.h \
@@ -69,7 +78,9 @@ HEADERS += \
     setbt.h \
     state.h \
     videoplayer.h \
-    voicebt.h
+    voicebt.h \
+    webclass.h \
+    webmap.h
 
 FORMS += \
     backcar.ui \
@@ -78,7 +89,8 @@ FORMS += \
     musicplayer.ui \
     paid.ui \
     paidclient.ui \
-    videoplayer.ui
+    videoplayer.ui \
+    webmap.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

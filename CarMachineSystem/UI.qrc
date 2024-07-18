@@ -140,5 +140,7 @@
         <file>white/99@2x.png</file>
         <file>UI/login.png</file>
         <file>UI/ewm.png</file>
+        <file>tmep/mymap_2.html</file>
+        <file>tmep/qwebchannel.js</file>
     </qresource>
 </RCC>

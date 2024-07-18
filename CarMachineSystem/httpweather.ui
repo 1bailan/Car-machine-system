@@ -44,7 +44,7 @@
            <property name="font">
             <font>
              <family>宋体</family>
-             <pointsize>14</pointsize>
+             <pointsize>24</pointsize>
             </font>
            </property>
            <property name="text">
@@ -60,7 +60,7 @@
            <property name="font">
             <font>
              <family>宋体</family>
-             <pointsize>14</pointsize>
+             <pointsize>24</pointsize>
             </font>
            </property>
            <property name="text">
@@ -111,7 +111,7 @@
          <property name="font">
           <font>
            <family>宋体</family>
-           <pointsize>14</pointsize>
+           <pointsize>24</pointsize>
           </font>
          </property>
          <property name="text">

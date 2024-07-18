@@ -13,12 +13,12 @@
 #include "VideoPlayer.h"
 #include <QDebug>
 #include <QObject>
+#include <QTimer>
 
 class StartState : public State
 {
 public:
     void handle(MainWindow* mainWindow) override;
-
 };
 
 //运行模式
@@ -26,7 +26,6 @@ class RunningState : public State
 {
 public:
     void handle(MainWindow* mainWindow) override;
-
 };
 
 // 待机模式
@@ -34,7 +33,6 @@ class StandbyState : public State
 {
 public:
     void handle(MainWindow* mainWindow) override;
-
 };
 
 #endif // CONCRETESTATES_H

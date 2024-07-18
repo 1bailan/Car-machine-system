@@ -1,0 +1,71 @@
+<!--
+ * @Author       : ZhangDingNian
+ * @Date         : 2024-07-17 13:46:00
+ * @LastEditors  : ZhangDingNian
+ * @LastEditTime : 2024-07-17 14:06:07
+-->
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+  <title>设置地图当前行政区</title>
+  <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+  <style>
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <script type="text/javascript">
+    window._AMapSecurityConfig = {
+      securityJsCode: "e51f81770886b68b2ae30ab5ab4943fa",
+    };
+  </script>
+  <div class="input-card" style="width:24rem;">
+    <h4>设置地图当前行政区</h4>
+    <div class="input-item">
+      <input id='city-name' placeholder="北京市" type="text" style="margin-right:1rem;"><button class="btn" id="query">去指定城市</button>
+    </div>
+  </div>
+
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=43d0cc28e654feef79fbf3ba444f12ae"></script>
+  <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+  <script>
+    var map = new AMap.Map('container', {
+      resizeEnable: true,
+      center: [116.405285,39.904989]
+    });
+
+    //根据cityname、adcode、citycode设置地图位置
+    function gotoCity() {
+      var val = document.querySelector('#city-name').value; //可以是cityname、adcode、citycode
+      if (!val) {
+        val = "北京市";
+      }
+      map.setCity(val);
+      console.log(val);
+      log.info(`已跳转至${val}`);
+    }
+
+    //绑定查询点击、回车事件
+    document.querySelector('#query').onclick = gotoCity;
+    document.querySelector('#city-name').onkeydown = function(e) {
+      if (e.keyCode === 13) {
+        gotoCity();
+        return false;
+      }
+      return true;
+    };
+  </script>
+</body>
+
+</html>
